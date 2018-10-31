@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../client/client.h"
+#include "../includes/client.h"
 
 
 int             init_connection(const char *address, t_sockaddr_in *sin)
@@ -22,7 +22,7 @@ int             init_connection(const char *address, t_sockaddr_in *sin)
     sin->sin_addr   = *(t_in_addr *)hostinfo->h_addr;
     sin->sin_port   = htons(PORT);
     sin->sin_family = AF_INET;
-    return (sock);
+    return (socketfd);
 }
 
 void            end_connection(int socketfd)

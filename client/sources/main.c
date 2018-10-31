@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "../client/client.h"
+#include "../includes/client.h"
 
 
 int main(int argc, char **argv)
