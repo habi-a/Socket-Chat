@@ -1,18 +1,22 @@
+#include <errno.h>
+#include <stdio.h>
+#include <stdlib.h>
+
 #include "../includes/client.h"
 
 
-int         read_server(int socketfd, t_sockaddr_in *sin, char *buffer)
+int             read_server(int socketfd, t_sockaddr_in *sin, char *buffer)
 {
-    int      n;
-    size_t   sinsize;
+    int         n;
+    socklen_t   sinsize;
 
     n        = 0;
-    sinsize  = sizeof(*sin)
+    sinsize  = sizeof(*sin);
     if ((n = recvfrom(socketfd, buffer, BUF_SIZE - 1, 0, (t_sockaddr *)sin, &sinsize)) < 0)
     {
         perror("recvfrom()");
         exit(errno);
     }
-    buffer[n] = '/0';
+    buffer[n] = '\0';
     return n;
 }

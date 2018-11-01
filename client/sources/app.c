@@ -1,5 +1,7 @@
+#include <errno.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 #include "../includes/client.h"
 
@@ -41,7 +43,6 @@ void                app(const char *address, const char *name)
         }
         else if (FD_ISSET(socketfd, &rdfs))
         {
-
             if ((n = read_server(socketfd, &sin, buffer)) == 0)
             {
                 printf("Server disconnected !\n");
