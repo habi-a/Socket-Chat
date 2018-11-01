@@ -25,7 +25,7 @@ int       init_connection(const char *address, t_sockaddr_in *sin);
 int       read_server(int socketfd, t_sockaddr_in *sin, char *buffer);
 void      app(const char *address, const char *name);
 void      end_connection(int socketfd);
-void      write_server(int sock, t_sockaddr_in *sin, const char *buffer);
+void      write_server(int socketfd, t_sockaddr_in *sin, const char *buffer);
 
 
 #endif    /* _SOCKET_CLIENT_H_ */
