@@ -1,5 +1,5 @@
-#ifndef   _SOCKET_CLIENT_H_
-# define  _SOCKET_CLIENT_H_
+#ifndef   _SOCKETCHAT_CLIENT_H_
+# define  _SOCKETCHAT_CLIENT_H_
 
 
 # include <sys/types.h>
@@ -28,4 +28,4 @@ void      end_connection(int socketfd);
 void      write_server(int socketfd, t_sockaddr_in *sin, const char *buffer);
 
 
-#endif    /* _SOCKET_CLIENT_H_ */
+#endif    /* _SOCKETCHAT_CLIENT_H_ */

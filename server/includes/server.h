@@ -1,5 +1,5 @@
-#ifndef   _SOCKET_SERVER_H_
-# define  _SOCKET_SERVER_H_
+#ifndef   _SOCKETCHAT_SERVER_H_
+# define  _SOCKETCHAT_SERVER_H_
 
 
 # include <sys/types.h>
@@ -37,4 +37,4 @@ void      send_all_clients(int socketfd, t_client *clients, t_client *client, in
 void      remove_client(t_client *clients, int to_remove, int *actual);
 t_client* get_client(t_client *clients, t_sockaddr_in *csin, int actual);
 
-#endif    /* _SOCKET_SERVER_H_ */
+#endif    /* _SOCKETCHAT_SERVER_H_ */
