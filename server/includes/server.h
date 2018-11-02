@@ -32,6 +32,7 @@ int       read_client(int socketfd, t_sockaddr_in *csin, char *buffer);
 int       client_exists(t_client *clients, t_sockaddr_in *csin, int actual);
 void      app(void);
 void      end_connection(int socketfd);
+void      send_notif_join(int socketfd, t_client *clients, t_client *sender, int actual);
 void      send_all_clients(int socketfd, t_client *clients, t_client *client, int actual, const char *buffer, char from_server);
 void      remove_client(t_client *clients, int to_remove, int *actual);
 t_client* get_client(t_client *clients, t_sockaddr_in *csin, int actual);

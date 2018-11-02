@@ -45,7 +45,7 @@ void                app(const char *address, const char *name)
         {
             if ((n = read_server(socketfd, &sin, buffer)) == 0)
             {
-                printf("Server disconnected !\n");
+                printf("\033[0;31mServer disconnected !\033[0m\n");
                 break;
             }
             puts(buffer);

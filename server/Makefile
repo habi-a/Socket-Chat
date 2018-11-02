@@ -12,7 +12,7 @@ SRC		= 	$(SRC_DIR)/main.c 			\
 			$(SRC_DIR)/client.c 		\
 			$(SRC_DIR)/connexion.c 		\
 			$(SRC_DIR)/read_client.c 	\
-			$(SRC_DIR)/send_all_clients.c
+			$(SRC_DIR)/send_client.c
 
 OBJ		= 	$(SRC:.c=.o)
 

@@ -15,6 +15,24 @@ static void write_client(int socketfd, t_sockaddr_in *sin, const char *buffer)
     }
 }
 
+void        send_notif_join(int socketfd, t_client *clients, t_client *sender, int actual)
+{
+    int     i;
+    char    message[BUF_SIZE];
+
+    i = 0;
+    message[0] = 0;
+    while (i < actual)
+    {
+        strncpy(message, "\033[0;32m*** ", BUF_SIZE - 1);
+        strncat(message, sender->name, sizeof(message) - strlen(message) - 1);
+        strncat(message, " joined the chat ***\033[0m", sizeof(message) - strlen(message) - 1);
+        write_client(socketfd, &clients[i].sin, message);
+        i++;
+    }
+}
+
+
 void        send_all_clients(int socketfd, t_client *clients, t_client *sender, int actual, const char *buffer, char from_server)
 {
     int     i;
@@ -28,10 +46,12 @@ void        send_all_clients(int socketfd, t_client *clients, t_client *sender, 
         {
             if (!from_server)
             {
-                strncpy(message, sender->name, BUF_SIZE - 1);
-                strncat(message, " : ", sizeof(message) - strlen(message) - 1);
+                strncpy(message, "\033[0;35m", BUF_SIZE - 1);
+                strncat(message, sender->name, sizeof(message) - strlen(message) - 1);
             }
+            strncat(message, " :\033[0;35m ", sizeof(message) - strlen(message) - 1);
             strncat(message, buffer, sizeof(message) - strlen(message) - 1);
+            strncat(message, "\033[0m", sizeof(message) - strlen(message) - 1);
             write_client(socketfd, &clients[i].sin, message);
         }
         i++;

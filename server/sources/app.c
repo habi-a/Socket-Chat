@@ -50,6 +50,8 @@ void                app(void)
                 strncpy(c.name, buffer, BUF_SIZE - 1);
                 clients[actual_index] = c;
                 actual_index++;
+                send_notif_join(socketfd, clients, &c, actual_index);
+                printf("%s joined the chat\n", c.name);
             }
         }
     }
